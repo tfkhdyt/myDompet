@@ -30,4 +30,5 @@ $query = "INSERT INTO dompet set tanggal='$tanggal', saldo='$saldo', income='$in
 mysqli_query($koneksi, $query);
 
 header("location:index.php?pesan=input");
+exit();
 ?>

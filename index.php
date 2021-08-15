@@ -1,9 +1,10 @@
 <?php
-  session_start();
-  if($_SESSION['status'] != "login"){
-    header("location:login/login.php?pesan=belum_login");
-  }
-  ?>
+session_start();
+if ($_SESSION['status'] != "login") {
+  header("location:login/login.php?pesan=belum_login");
+  exit();
+}
+?>
 <!doctype html>
 <html lang="en">
 <head>
@@ -34,9 +35,9 @@
         $saldoTerbaru = mysqli_query($koneksi, "select saldo from dompet where user_id = '".$_SESSION['id']."' order by tanggal desc limit 1");
         $dataSaldo = mysqli_fetch_array($saldoTerbaru);
         $cek = mysqli_num_rows($saldoTerbaru);
-        if($cek > 0){
+        if ($cek > 0) {
           echo "<h8 class='text-white float-right'><i class='fa fa-money-bill-wave-alt'> Rp ".$dataSaldo['saldo']."</i></h8>";
-        }else{
+        } else {
           echo "<h8 class='text-white float-right'><i class='fa fa-money-bill-wave-alt'> Rp 0</i></h8>";
         }
         ?>
@@ -72,7 +73,7 @@
         <!-- Button trigger modal -->
         <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
           <i class="fa fa-plus"></i> Tambah Data</button>
-          
+
         <a href="logout.php" class="btn btn-danger float-right" onclick="return confirm('Anda yakin ingin logout?')">
           <i class="fa fa-sign-out"></i> Log out</a>
 
@@ -99,7 +100,7 @@
                   </div>
                   <?php
                   $saldoTerbaru = mysqli_query($koneksi, "select saldo from dompet where user_id = '".$_SESSION['id']."' order by tanggal desc limit 1");
-        $dataSaldo = mysqli_fetch_array($saldoTerbaru);
+                  $dataSaldo = mysqli_fetch_array($saldoTerbaru);
                   ?>
                   <div class="form-group">
                     <label for="saldo">Saldo saat ini</label>

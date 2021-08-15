@@ -7,4 +7,5 @@ session_destroy();
 
 // mengalihkan halaman sambil mengirim pesan logout
 header("location:login/login.php?pesan=logout");
+exit();
 ?>
