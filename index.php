@@ -167,7 +167,10 @@ if ($_SESSION['status'] != "login") {
               $newDate = date("d-m-Y H:i", strtotime($originalDate));
               ?>
               <tr>
-                <td><font size="2"><?=$newDate; ?></font></td>
+                <td><font size="2">
+                  <span style="display:none;"><?=strtotime($originalDate); ?></span>
+                  <?= $newDate; ?></font>
+                </td>
                 <td><b>Rp <?=$d['saldo']; ?></b></td>
                 <td><font color="green">+ Rp <?=$d['income']; ?></font></td>
                 <td><font color="red">- Rp <?=$d['outcome']; ?></font></td>
